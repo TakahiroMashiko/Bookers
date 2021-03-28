@@ -1,9 +1,13 @@
 class BooksController < ApplicationController
+
   def index
+    @books = Book.all
+    p "標準出力にのみ反映"
+    logger.debug("標準出力とログファイルに記録される")
   end
 
   def show
-  end
+    @book = Book.find(params[:id])
 
   def new
     @book = Book.new
@@ -24,4 +28,5 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
+
 end
