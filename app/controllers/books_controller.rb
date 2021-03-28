@@ -19,7 +19,7 @@ class BooksController < ApplicationController
   def edit
   end
 
-# ストロングパラメータ
+# ストロングパラメータを設定
   private
   def book_params
     params.require(:book).permit(:title, :body)
