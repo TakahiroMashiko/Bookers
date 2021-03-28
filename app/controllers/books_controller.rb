@@ -2,8 +2,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    p "標準出力にのみ反映"
-    logger.debug("標準出力とログファイルに記録される")
   end
 
   def show
@@ -17,7 +15,7 @@ class BooksController < ApplicationController
   def create
     book = Book.new(book_params)
     book.save
-    redirect_to books_path
+    redirect_to books_path(book.id)
 
   end
 
