@@ -1,12 +1,16 @@
 <h1>Books</h1>
-<p>Title</p>
-<% @books.each do |book| %>
+  <table>
+    <th>Title</th>
+    <th>Body</th>
+  <tbody>
+    <% @books.each do |book| %>
   <span>
     <%= link_to book.title, "/books/#{book.id}" %>
   </span>
-<p>Body</p>
   <span>
     <%= link_to book.body, "/books/#{book.id}" %>
   </span>
+  </tbody>
 
+  </table>
 <% end %>
