@@ -1,0 +1,16 @@
+<h1>Books</h1>
+  <table>
+    <th>Title</th>
+    <th>Body</th>
+  <tbody>
+    <% @books.each do |book| %>
+  <span>
+    <%= link_to book.title, "/books/#{book.id}" %>
+  </span>
+  <span>
+    <%= link_to book.body, "/books/#{book.id}" %>
+  </span>
+  </tbody>
+
+  </table>
+<% end %>
