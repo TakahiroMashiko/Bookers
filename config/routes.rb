@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :homes
   resources :books
   post 'books' => 'books#create'
+  get 'books/:id' => 'books#create'
   get 'books/:id/edit' => 'books#edit'
   delete 'books/:id' => 'books#destroy', as: 'destroy_book'
+  get '', to: 'homes#index'
 end

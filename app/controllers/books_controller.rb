@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   def create
     book = Book.new(book_params)
     book.save
-    redirect_to books_path(book.id)
+    redirect_to 'books/:id'
     # redirect_to '/books/:id' # !bookのshowページに遷移したいがエラーになる!
     # フラッシュメッセージ
     # @message = @book.messages.new(message_params)
