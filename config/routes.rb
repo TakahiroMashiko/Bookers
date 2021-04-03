@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   get 'books/:id' => 'books#create'
   get 'books/:id/edit' => 'books#edit'
   delete 'books/:id' => 'books#destroy', as: 'destroy_book'
+
+  # アプリケーションのトップ画面を「/」で表示させる
   get '', to: 'homes#index'
 end
