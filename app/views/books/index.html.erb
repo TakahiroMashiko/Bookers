@@ -15,9 +15,11 @@
     <td>
       <%= book.title %>
     </td>
+
     <td>
       <%= book.body %>
     </td>
+
     <td>
       <%= link_to "show", book_path(book.id) %>
       <%= link_to "edit", edit_book_path(book.id) %>
@@ -28,7 +30,7 @@
   </tbody>
 </table>
 
-<h3>New book</h3>
+<h2>New book</h2>
 <!-- form_for部分 -->
 <%= form_for(@book) do |f| %>
 
