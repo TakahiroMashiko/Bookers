@@ -24,3 +24,16 @@ th {
     font-weight: bold;
     text-align: -internal-center;
 }
+
+div {
+    display : block;
+}
+
+div.field, div.acsions {
+  margin-bottom: 10px;
+}
+
+section {
+  display: block;
+  margin-top: 0em;
+}
