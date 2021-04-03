@@ -12,7 +12,14 @@ class BooksController < ApplicationController
   def create
     book = Book.new(book_params)
     book.save
-    redirect_to books_path(book.id)
+    # フラッシュメッセージ
+    # @message = @book.messages.new(message_params)
+    # if @message.save
+      redirect_to '/books/:id' #, notice: 'successfully'
+    # else
+      # flash.now[:alert] = 'error'
+      # render :index
+    # end
   end
 
   def show
