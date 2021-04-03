@@ -1,11 +1,11 @@
 <section class="show-book">
   <h2 class="book-box">
-    <%= @book.title %>
+    <p>Title:</p><%= @book.title %>
   </h2>
 
   <h2 class="book-box">
-    <%= @book.body %>
+    <p>Body:</p><%= @book.body %>
   </h2>
 
-  <a href="#">Edit</a> | <a href="#">back</a>
+  <%= link_to "Edit", edit_book_path(book.id) %> | <%= link_to "Back", book_path %>
 </section>
