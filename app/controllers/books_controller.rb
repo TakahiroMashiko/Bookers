@@ -15,6 +15,9 @@ class BooksController < ApplicationController
     # 投稿処理の成功後、サクセスメッセージを表示
     if @book.save
       redirect_to book_path(@book), notice: "Book was successfully created."
+    else
+      @books=Book.all
+      render 'index'
     end
   end
 
@@ -32,6 +35,9 @@ class BooksController < ApplicationController
     # 更新処理の成功後、サクセスメッセージを表示
     if @book.update(book_params)
       redirect_to book_path(@book), notice: "Book was successfully updated."
+    else
+      @books=Book.all
+      render 'edit'
     end
   end
 
