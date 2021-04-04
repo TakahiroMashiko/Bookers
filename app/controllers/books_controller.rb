@@ -13,7 +13,6 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.save
     redirect_to book_path(@book)
-    # redirect_to '/books/:id' # !bookのshowページに遷移したいがエラーになる!
     # フラッシュメッセージ
     # @message = @book.messages.new(message_params)
     # if @message.save
@@ -39,9 +38,15 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    book = Book.find(params[:id])
-    book.destroy
-    redirect_to books_path
+    @book = Book.find(params[:id])
+    @book.destroy
+    # 削除処理の成功後、サクセスメッセージを表示
+    if @book.destroy
+      flash[:notice] = "Book was successfully destroyed."
+      redirect_to books_path(@book)
+    else
+      render action: :new
+    end
   end
 
 # ストロングパラメータを設定

@@ -1,3 +1,8 @@
+<!-- 投稿・更新・削除処理の成功後、サクセスメッセージを表示 -->
+<% if flash[:notice] %>
+  <p class="successfully"><%= flash[:notice] %></p>
+<% end %>
+
 <h1>Books</h1>
 
 <table>
@@ -31,7 +36,7 @@
 </table>
 
 <h2>New book</h2>
-<!-- form_for部分(古い書き方　→　With)-->
+<!-- form_with部分(古い書き方 for　→　With)-->
 <%= form_with model:@book, local:true do |f| %>
 
 <h4>Title</h4>
