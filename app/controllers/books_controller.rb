@@ -30,7 +30,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.update(book_params)
     # 更新処理の成功後、サクセスメッセージを表示
-    if @book.update
+    if @book.update(book_params)
       redirect_to book_path(@book), notice: "Book was successfully updated."
     end
   end
