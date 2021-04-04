@@ -12,8 +12,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.save
-    # redirect_to book_path(@book)
-    # 削除処理の成功後、サクセスメッセージを表示
+    # 投稿処理の成功後、サクセスメッセージを表示
     if @book.save
       redirect_to book_path(@book), notice: "Book was successfully created."
     end
@@ -28,9 +27,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to book_path(book.id)
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    # 更新処理の成功後、サクセスメッセージを表示
+    if @book.update
+      redirect_to book_path(@book), notice: "Book was successfully updated."
+    end
   end
 
   def destroy
