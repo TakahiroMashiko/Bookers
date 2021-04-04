@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   # アプリケーションのトップ画面を「/」で表示させる
   get '/', to: 'homes#index'
+  # ルートパス
   root :to => 'homes#index'
 end
