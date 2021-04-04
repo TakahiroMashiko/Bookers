@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.save
     redirect_to book_path(@book)
-    # フラッシュメッセージ
+    # 投稿処理の成功後、サクセスメッセージを表示
     # @message = @book.messages.new(message_params)
     # if @message.save
       # redirect_to '/books/:id' #, notice: 'successfully'
@@ -42,10 +42,9 @@ class BooksController < ApplicationController
     @book.destroy
     # 削除処理の成功後、サクセスメッセージを表示
     if @book.destroy
-      flash[:notice] = "Book was successfully destroyed."
-      redirect_to books_path(@book)
-    else
-      render action: :new
+      redirect_to books_path(@book), notice: "Book was successfully destroyed."
+      # flash[:notice] = "Book was successfully destroyed." !この書き方でもOK!
+      # redirect_to books_path(@book) !この書き方でもOK!
     end
   end
 
