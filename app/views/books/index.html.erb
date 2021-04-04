@@ -1,6 +1,6 @@
-<!-- 投稿・更新・削除処理の成功後、サクセスメッセージを表示 -->
+<!-- 投稿・更新・削除処理の成功後、サクセスメッセージを表示、テキストの色指定なし（黒） -->
 <% if flash[:notice] %>
-  <p class="successfully"><%= flash[:notice] %></p>
+  <p><%= flash[:notice] %></p>
 <% end %>
 
 <h1>Books</h1>
