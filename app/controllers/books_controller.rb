@@ -12,15 +12,11 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.save
-    redirect_to book_path(@book)
-    # 投稿処理の成功後、サクセスメッセージを表示
-    # @message = @book.messages.new(message_params)
-    # if @message.save
-      # redirect_to '/books/:id' #, notice: 'successfully'
-    # else
-      # flash.now[:alert] = 'error'
-      # render :index
-    # end
+    # redirect_to book_path(@book)
+    # 削除処理の成功後、サクセスメッセージを表示
+    if @book.save
+      redirect_to book_path(@book), notice: "Book was successfully created."
+    end
   end
 
   def show
